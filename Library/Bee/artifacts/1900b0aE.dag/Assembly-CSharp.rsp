@@ -362,6 +362,8 @@
 "Assets/Scripts/EnemyController.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/MilestoneSystem.cs"
+"Assets/Scripts/OptionsPopUp.cs"
+"Assets/Scripts/PauseSystem.cs"
 "Assets/Scripts/PopUpUpgradeSystem.cs"
 "Assets/Scripts/UpgradeCard.cs"
 "Assets/Scripts/UpgradeSkill.cs"

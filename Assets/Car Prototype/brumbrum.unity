@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 103806652}
   m_Layer: 0
   m_Name: EnemyActivator
-  m_TagString: EnemyActivator
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanceFromPlayer: 100
+  activatorEnemies: []
 --- !u!4 &103806653
 Transform:
   m_ObjectHideFlags: 0
@@ -310,6 +311,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e9c4b40a168c14599646d455283ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damage: 0
   range: 20
   knockback: 10
   delay: 0.5
@@ -438,12 +440,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1ee8db05b18ae346b5971ba95ca0d58, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnArea_height: 477.4
-  spawnArea_width: 435.7
+  spawnArea_height: 500
+  spawnArea_width: 500
   spawn:
   - {fileID: 8513868619454360112, guid: 43d93fcaaa9f6bd4a943b110a8e2a74e, type: 3}
-  probality: 100
-  spawnCount: 1000
+  - {fileID: 8513868619454360112, guid: 7269baad73c4bd1478c21a8dbdcced9d, type: 3}
+  probality: 2
+  spawnCount: 1
 --- !u!4 &1893838332
 Transform:
   m_ObjectHideFlags: 0

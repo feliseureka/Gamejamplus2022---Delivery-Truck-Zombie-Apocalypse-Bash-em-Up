@@ -7,6 +7,7 @@ public class SpawnSystem : MonoBehaviour
     [SerializeField] float spawnArea_height = 1f;
     [SerializeField] float spawnArea_width = 1f;
     int length;
+    float time;
 
     [SerializeField] GameObject[] spawn;
     [SerializeField] float probality;
@@ -16,6 +17,21 @@ public class SpawnSystem : MonoBehaviour
     {
         length = spawn.Length;
         Spawn();
+    }
+
+    private void Update()
+    {
+        time += Time.deltaTime;
+        if (time > 3f)
+        {
+            time = 0;
+            if (transform.childCount < 10000)
+            {
+                Spawn();
+                spawnCount += 5;
+            }
+        }
+
     }
 
     void Spawn()
@@ -35,6 +51,7 @@ public class SpawnSystem : MonoBehaviour
             position.z += Random.Range(-spawnArea_height, spawnArea_height);
 
             t.position = position;
+           
         }
     }
 
