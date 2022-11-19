@@ -26,19 +26,28 @@ public class GameManager : MonoBehaviour
             case GameState.UpgradeState:
                 HandleUpgradeState();
                 break;
+            case GameState.PauseState:
+                HandlePauseState();
+                break;
         }
 
         OnStateChanged?.Invoke(state);
     }
 
-    public void HandleGameState(){}
+    public void HandleGameState(){
+        Time.timeScale = 1;
+    }
 
     public void HandleUpgradeState(){
-        //
+        Time.timeScale = 0;
+    }
+    public void HandlePauseState(){
+        Time.timeScale = 0;
     }
 }
 
 public enum GameState {
     GameState
-    ,UpgradeState
+    ,UpgradeState,
+    PauseState
 }

@@ -14,7 +14,7 @@ public class AudioSystem : MonoBehaviour
 
     void Start(){
         if(Instance != null && Instance != this){
-            Destroy(this);
+            Destroy(gameObject);
         }else{
             Instance = this;
             DontDestroyOnLoad(gameObject);
@@ -39,6 +39,14 @@ public class AudioSystem : MonoBehaviour
 
     public void ChangeSFXVolume(float value){
         SFXsource.volume = value;
+    }
+
+    public void tMuteMusic(){
+        musicSource.mute = !musicSource.mute;
+    }
+
+    public void tMuteSFX(){
+        SFXsource.mute = !SFXsource.mute;
     }
 
     public void StopMusic(){
