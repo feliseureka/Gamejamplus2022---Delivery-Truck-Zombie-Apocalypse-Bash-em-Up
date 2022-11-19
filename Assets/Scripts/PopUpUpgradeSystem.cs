@@ -26,6 +26,7 @@ public class PopUpUpgradeSystem : MonoBehaviour
     }
 
     public void NextLevel(){
+        Time.timeScale = 0;
         upgradeUI.SetActive(true);
     }
 }

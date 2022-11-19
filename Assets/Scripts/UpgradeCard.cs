@@ -9,6 +9,7 @@ public class UpgradeCard : MonoBehaviour
 
     public void onCardClick(){
         transform.parent.gameObject.SetActive(false);
+        Time.timeScale = 1;
         GameManager.Instance.changeState(GameState.GameState);
     }
 }
