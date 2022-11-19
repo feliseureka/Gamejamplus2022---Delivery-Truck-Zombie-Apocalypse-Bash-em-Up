@@ -13,10 +13,23 @@ public class SpawnSystem : MonoBehaviour
     [SerializeField] float probality;
     [SerializeField] int spawnCount;
 
+    private int maxSpawn = 10000;
+
     private void Start()
     {
         length = spawn.Length;
         Spawn();
+        StartCoroutine(spawnUpdate());
+    }
+
+    IEnumerator spawnUpdate(){
+        spawnCount = Random.Range(0, 10);
+        yield return new WaitForSeconds(1);
+        if(maxSpawn >= spawn.Length){
+            Spawn();
+        }
+        yield return new WaitForSeconds(1);
+        StartCoroutine(spawnUpdate());
     }
 
     private void Update()

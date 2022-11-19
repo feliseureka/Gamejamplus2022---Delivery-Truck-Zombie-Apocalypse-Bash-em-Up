@@ -24,7 +24,7 @@ public class PopUpUpgradeSystem : MonoBehaviour
 
     void EnqueueSkill(){
         int a = Random.Range(0,SkillArray.Count);
-        int b = (a + Random.Range(1,SkillArray.Count - 1)) % SkillArray.Count;
+        int b = (a + Random.Range(1,SkillArray.Count)) % SkillArray.Count;
         leftUpgrade.skill = SkillArray[a];
         rightUpgrade.skill = SkillArray[b];
     }

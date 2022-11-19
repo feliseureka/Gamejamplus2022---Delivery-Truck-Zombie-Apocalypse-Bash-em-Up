@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour {
 
@@ -15,6 +16,7 @@ public class PlayerStats : MonoBehaviour {
     public int hpUp = 0;
     public int spdUp = 0;
     public int defUp = 0;
+    public Slider healthUI;
     private PStat currentStat;
 
     [SerializeField] private PStatSO stat;
@@ -25,12 +27,14 @@ public class PlayerStats : MonoBehaviour {
     private void Awake() {
         mov = GetComponent<PlayerMove>();
         OnStatChange();
+        healthUI.maxValue = currentStat.mhp;
     }
 
     private void Start() {
         currentHp = currentStat.mhp;
         currentDef = currentStat.mdef;
         atk = currentStat.atk;
+        healthUI.value = currentHp;
     }
 
     //TESSS
@@ -43,6 +47,7 @@ public class PlayerStats : MonoBehaviour {
 
     public void OnStatChange() {
         currentStat = stat.GetStat(currentLevel, plow, saw, hpUp, defUp, spdUp);
+        healthUI.maxValue = currentStat.mhp;
         mov.ChangeStat(currentStat.mSpeed);
     }
 
@@ -55,6 +60,17 @@ public class PlayerStats : MonoBehaviour {
         } else {
             currentDef -= damage;
         }
+        healthUI.value = currentHp;
+    }
+
+    public void FullHeal(){
+        currentHp = currentStat.mhp;
+        healthUI.value = currentHp;
+    }
+
+    public void recoverHealth(){
+        currentHp += (int) Mathf.Floor(currentStat.mhp/10);
+        healthUI.value = currentHp;
     }
 }
 

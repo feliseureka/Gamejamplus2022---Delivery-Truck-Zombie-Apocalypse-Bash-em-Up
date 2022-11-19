@@ -17,6 +17,7 @@ public class EnemyController : MonoBehaviour {
     bool isBoom;
     bool isNormal;
     PlayerStats playerStats;
+    public MilestoneSystem milestone;
 
     [SerializeField] private float topSpeed;
     [SerializeField] private float acceleration;
@@ -80,6 +81,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void Die() {
+        MilestoneSystem.increaseProgress();
         Destroy(gameObject);
     }
 
