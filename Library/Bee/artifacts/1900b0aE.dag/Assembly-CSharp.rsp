@@ -355,12 +355,14 @@
 "Assets/Car Prototype/PStatSO.cs"
 "Assets/Car Prototype/Turret.cs"
 "Assets/PlayerSkillSO/SkillSO.cs"
+"Assets/Scripts/ChangeScene.cs"
 "Assets/Scripts/EnemyController.cs"
 "Assets/Scripts/GameManager.cs"
 "Assets/Scripts/MilestoneSystem.cs"
 "Assets/Scripts/PopUpUpgradeSystem.cs"
 "Assets/Scripts/UpgradeCard.cs"
 "Assets/Scripts/UpgradeSkill.cs"
+"Assets/SpawnSystem.cs"
 -langversion:9.0
 
 /deterministic

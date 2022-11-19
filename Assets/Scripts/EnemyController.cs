@@ -53,7 +53,6 @@ public class EnemyController : MonoBehaviour {
 
     IEnumerator NormalEnemy()
     {
-        
         if (isNormal)
         {
             isNormal = false;
