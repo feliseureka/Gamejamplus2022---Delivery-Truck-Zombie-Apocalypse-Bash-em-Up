@@ -44,6 +44,17 @@ public class PlayerStats : MonoBehaviour {
         currentStat = stat.GetStat(currentLevel, plow, saw, hpUp, defUp, spdUp);
         mov.ChangeStat(currentStat.mSpeed);
     }
+
+    public void TakeDamage(int damage) {
+
+        if (currentDef < damage) {
+            currentDef = 0;
+            damage -= currentDef;
+            currentHp -= damage;
+        } else {
+            currentDef -= damage;
+        }
+    }
 }
 
 [System.Serializable]
