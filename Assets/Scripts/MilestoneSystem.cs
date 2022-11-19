@@ -23,7 +23,7 @@ public class MilestoneSystem : MonoBehaviour
     public void checkNextLevel(){
         if(slider.value >= this.max){
             changeMax(max*2);
-            BroadcastMessage("NextLevel");
+            GameManager.Instance.changeState(GameState.UpgradeState);
         }
     }
 
