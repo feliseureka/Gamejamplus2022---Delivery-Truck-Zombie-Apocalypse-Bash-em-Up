@@ -9,12 +9,12 @@ public class PlayerStats : MonoBehaviour {
     [SerializeField] private int currentDef;
 
 
-    private int currentLevel = 0;
-    private int plow = 0;
-    private int saw = 0;
-    private int hpUp = 0;
-    private int spdUp = 0;
-    private int defUp = 0;
+    public int currentLevel = 0;
+    public int plow = 0;
+    public int saw = 0;
+    public int hpUp = 0;
+    public int spdUp = 0;
+    public int defUp = 0;
     private PStat currentStat;
 
     [SerializeField] private PStatSO stat;
