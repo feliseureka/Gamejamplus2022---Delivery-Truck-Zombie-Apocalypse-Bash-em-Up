@@ -380,8 +380,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   range: 20
-  knockback: 40
+  knockback: 10
   delay: 0.5
+  spread: 10
+  burstCount: 5
 --- !u!1 &1385742730
 GameObject:
   m_ObjectHideFlags: 0
