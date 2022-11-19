@@ -4,21 +4,45 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
-    private int currentLevel = 0;
-    private PStat currentStat, cUpgradeStat;
+    [SerializeField] private int currentHp;
+    [SerializeField] private int atk;
+    [SerializeField] private int currentDef;
 
-    [SerializeField] private PStat[] statEachLevel;
 
-    public void OnLevelUp(int lv) {
-        if (lv < 0 || lv >= statEachLevel.Length) { return; }
-        currentLevel = lv;
-        currentStat = statEachLevel[lv] + cUpgradeStat;
+    public int currentLevel = 0;
+    public int plow = 0;
+    public int saw = 0;
+    public int hpUp = 0;
+    public int spdUp = 0;
+    public int defUp = 0;
+    private PStat currentStat;
+
+    [SerializeField] private PStatSO stat;
+
+    private PlayerMove mov;
+
+    private void Awake() {
+        mov = GetComponent<PlayerMove>();
+        OnStatChange();
     }
 
-    //NOTE THIS IS ADDITIVE
-    public void OnUpgrade(PStat upStat) {
-        cUpgradeStat += upStat;
-        OnLevelUp(currentLevel);
+    private void Start() {
+        currentHp = currentStat.mhp;
+        currentDef = currentStat.mdef;
+        atk = currentStat.atk;
+    }
+
+    //TESSS
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            spdUp++;
+            OnStatChange();
+        }
+    }
+
+    public void OnStatChange() {
+        currentStat = stat.GetStat(currentLevel, plow, saw, hpUp, defUp, spdUp);
+        mov.ChangeStat(currentStat.mSpeed);
     }
 }
 
@@ -35,6 +59,15 @@ public struct PStat {
             mdef = a.mdef + b.mdef,
             mSpeed = a.mSpeed + b.mSpeed,
             atk = a.atk + b.atk
+        };
+    }
+
+    public static PStat operator *(int f, PStat a) {
+        return new PStat {
+            mhp = a.mhp * f,
+            mdef = a.mdef * f,
+            mSpeed = a.mSpeed * f,
+            atk = a.atk * f
         };
     }
 }

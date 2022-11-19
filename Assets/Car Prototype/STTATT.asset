@@ -1,0 +1,124 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a0256e79debfb14896fa69edca4bf6c, type: 3}
+  m_Name: STTATT
+  m_EditorClassIdentifier: 
+  levelStat:
+  - mhp: 100
+    mdef: 0
+    mSpeed: 40
+    atk: 1
+  - mhp: 120
+    mdef: 0
+    mSpeed: 40
+    atk: 1
+  - mhp: 140
+    mdef: 0
+    mSpeed: 40
+    atk: 1
+  - mhp: 160
+    mdef: 0
+    mSpeed: 40
+    atk: 1
+  - mhp: 180
+    mdef: 0
+    mSpeed: 40
+    atk: 1
+  - mhp: 200
+    mdef: 0
+    mSpeed: 40
+    atk: 1
+  - mhp: 220
+    mdef: 0
+    mSpeed: 40
+    atk: 2
+  - mhp: 240
+    mdef: 0
+    mSpeed: 40
+    atk: 2
+  - mhp: 260
+    mdef: 0
+    mSpeed: 40
+    atk: 2
+  - mhp: 280
+    mdef: 0
+    mSpeed: 40
+    atk: 2
+  - mhp: 300
+    mdef: 0
+    mSpeed: 40
+    atk: 2
+  plowStat:
+  - mhp: 0
+    mdef: 0
+    mSpeed: 0
+    atk: 0
+  - mhp: 0
+    mdef: 10
+    mSpeed: -5
+    atk: 1
+  - mhp: 0
+    mdef: 15
+    mSpeed: -10
+    atk: 2
+  - mhp: 0
+    mdef: 20
+    mSpeed: -15
+    atk: 3
+  - mhp: 0
+    mdef: 25
+    mSpeed: -20
+    atk: 4
+  - mhp: 0
+    mdef: 30
+    mSpeed: -25
+    atk: 5
+  sawStat:
+  - mhp: 0
+    mdef: 0
+    mSpeed: 0
+    atk: 0
+  - mhp: -10
+    mdef: 0
+    mSpeed: 0
+    atk: 2
+  - mhp: -20
+    mdef: 0
+    mSpeed: 0
+    atk: 3
+  - mhp: -30
+    mdef: 0
+    mSpeed: 0
+    atk: 4
+  - mhp: -40
+    mdef: 0
+    mSpeed: 0
+    atk: 5
+  - mhp: -50
+    mdef: 0
+    mSpeed: 0
+    atk: 6
+  hpUp:
+    mhp: 50
+    mdef: 0
+    mSpeed: 0
+    atk: 0
+  defUp:
+    mhp: 0
+    mdef: 50
+    mSpeed: 0
+    atk: 0
+  spdUp:
+    mhp: 0
+    mdef: 0
+    mSpeed: 10
+    atk: 0
