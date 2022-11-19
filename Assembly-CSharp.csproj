@@ -57,20 +57,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Car Prototype\PlayerMove.cs" />
+    <Compile Include="Assets\SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\UpgradeSkill.cs" />
     <Compile Include="Assets\Scripts\PopUpUpgradeSystem.cs" />
     <Compile Include="Assets\Car Prototype\Turret.cs" />
+    <Compile Include="Assets\EnemyActivator.cs" />
     <Compile Include="Assets\Car Prototype\PlayerStats.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\EnemyController.cs" />
     <Compile Include="Assets\PlayerSkillSO\SkillSO.cs" />
+    <Compile Include="Assets\DisableEnemy.cs" />
     <Compile Include="Assets\Car Prototype\PStatSO.cs" />
     <Compile Include="Assets\Scripts\UpgradeCard.cs" />
+    <Compile Include="Assets\Scripts\AudioSystem.cs" />
     <Compile Include="Assets\Scripts\MilestoneSystem.cs" />
     <Compile Include="Assets\Car Prototype\CameraFollow.cs" />
-    <Compile Include="Assets\SpawnSystem.cs" />
-    <Compile Include="Assets\Scripts\AudioSystem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

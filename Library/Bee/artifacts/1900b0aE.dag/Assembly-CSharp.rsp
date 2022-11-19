@@ -354,6 +354,8 @@
 "Assets/Car Prototype/PlayerStats.cs"
 "Assets/Car Prototype/PStatSO.cs"
 "Assets/Car Prototype/Turret.cs"
+"Assets/DisableEnemy.cs"
+"Assets/EnemyActivator.cs"
 "Assets/PlayerSkillSO/SkillSO.cs"
 "Assets/Scripts/AudioSystem.cs"
 "Assets/Scripts/ChangeScene.cs"

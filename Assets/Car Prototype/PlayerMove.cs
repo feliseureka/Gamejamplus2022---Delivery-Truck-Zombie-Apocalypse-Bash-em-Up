@@ -50,12 +50,4 @@ public class PlayerMove : MonoBehaviour {
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, angularVelocity * Time.fixedDeltaTime, 0f));
         }
     }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            isAttack = true;
-        }
-    }
 }
