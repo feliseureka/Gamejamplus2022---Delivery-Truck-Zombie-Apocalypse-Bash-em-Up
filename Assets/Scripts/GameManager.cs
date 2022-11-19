@@ -1,18 +1,44 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public static GameManager Instance;
+    public GameState state;
+
+    public static event Action<GameState> OnStateChanged;
+
     void Start()
     {
-        
+        if(Instance != null && Instance != this) Destroy(this);
+        else Instance = this;
+        changeState(GameState.GameState);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void changeState(GameState state){
+        this.state = state;
+        switch (state){
+            case GameState.GameState:
+                HandleGameState();
+                break;
+            case GameState.UpgradeState:
+                HandleUpgradeState();
+                break;
+        }
+
+        OnStateChanged?.Invoke(state);
     }
+
+    public void HandleGameState(){}
+
+    public void HandleUpgradeState(){
+        //
+    }
+}
+
+public enum GameState {
+    GameState
+    ,UpgradeState
 }

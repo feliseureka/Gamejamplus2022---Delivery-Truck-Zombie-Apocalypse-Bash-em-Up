@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class UpgradeCard : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string nameUpgrade;
+    public string desc;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void onCardClick(){
+        transform.parent.gameObject.SetActive(false);
+        GameManager.Instance.changeState(GameState.GameState);
     }
 }
