@@ -17,6 +17,8 @@ public class PlayerMove : MonoBehaviour {
 
     private float x, y;
 
+    bool isAttack;
+
     public void ChangeStat(int topSpeed) {
         this.topSpeed = topSpeed;
     }
@@ -46,6 +48,14 @@ public class PlayerMove : MonoBehaviour {
         angularVelocity = Mathf.Clamp(angularVelocity, -60f, 60f);
         if (rb.velocity.sqrMagnitude > 0.01f) {
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, angularVelocity * Time.fixedDeltaTime, 0f));
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            isAttack = true;
         }
     }
 }
