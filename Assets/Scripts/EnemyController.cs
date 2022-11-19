@@ -62,14 +62,25 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
+    public void TakeDamage(int damage) {
+        health -= damage;
+        if (health <= 0) {
+            Die();
+        }
+    }
+
     void EnemyBoom()
     {
         if (isBoom)
         {
             isBoom = false;
             playerStats.TakeDamage(attack * 2);
-            Destroy(gameObject);
+            Die();
         }
+    }
+
+    private void Die() {
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter(Collision collision) {

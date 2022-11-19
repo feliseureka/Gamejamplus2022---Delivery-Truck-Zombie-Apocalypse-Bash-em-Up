@@ -45,6 +45,12 @@ public class UpgradeCard : MonoBehaviour
             case "Speed Up":
                 PStat.spdUp++;
                 break;
+            case "Machine Gun":
+                PStat.mGun.Upgrade();
+                break;
+            case "Shotgun":
+                PStat.sGun.Upgrade();
+                break;
         }
     }
 }

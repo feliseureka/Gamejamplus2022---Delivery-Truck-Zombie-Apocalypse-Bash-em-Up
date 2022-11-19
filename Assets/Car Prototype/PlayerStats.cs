@@ -18,6 +18,7 @@ public class PlayerStats : MonoBehaviour {
     private PStat currentStat;
 
     [SerializeField] private PStatSO stat;
+    public Turret mGun, sGun;
 
     private PlayerMove mov;
 

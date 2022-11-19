@@ -1,16 +1,23 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Turret : MonoBehaviour {
 
+    private int level;
+
+    [SerializeField] private int damage;
     [SerializeField] private float range, knockback;
     [SerializeField] private float delay;
     [SerializeField] private float spread;
     [SerializeField] private float burstCount;
 
-    private void Start() {
+    public void Upgrade() {
+        StopAllCoroutines();
+        level++;
         StartCoroutine(TimedShot(delay));
+        if (level < 2) { return; }
+        damage++;
+        delay -= 0.05f;
     }
 
     IEnumerator TimedShot(float wait) {
