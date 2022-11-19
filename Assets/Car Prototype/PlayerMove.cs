@@ -13,6 +13,8 @@ public class PlayerMove : MonoBehaviour {
     private float currentAcceleration;
     private float angularVelocity;
 
+    public float CurrentSpeedSq => rb.velocity.sqrMagnitude;
+
     private Rigidbody rb;
 
     private float x, y;
@@ -25,8 +27,8 @@ public class PlayerMove : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
     }
     private void Update() {
-        x = Input.GetAxis("Horizontal");
-        y = Input.GetAxis("Vertical");
+        x = Input.GetAxisRaw("Horizontal");
+        y = Input.GetAxisRaw("Vertical");
     }
 
     private void FixedUpdate() {
@@ -35,15 +37,16 @@ public class PlayerMove : MonoBehaviour {
         var f = yt * angularVelocity < 0 ? angularCounterAcceleration : angularAcceleration;
         if (y != 0f) {
             rb.AddForce(currentAcceleration * yt * transform.forward);
-            if (x != 0) {
+            if (x != 0f) {
                 angularVelocity += f * x * yt * angularAcceleration;
-            } else {
-                angularVelocity = 0f;
             }
         }
-        rb.velocity = Vector3.ClampMagnitude(rb.velocity, topSpeed);
+        if (x == 0f) {
+            angularVelocity /= 8;
+        }
+            rb.velocity = Vector3.ClampMagnitude(rb.velocity, topSpeed);
         angularVelocity = Mathf.Clamp(angularVelocity, -60f, 60f);
-        if (rb.velocity.sqrMagnitude > 0) {
+        if (rb.velocity.sqrMagnitude > 0.01f) {
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, angularVelocity * Time.fixedDeltaTime, 0f));
         }
     }
