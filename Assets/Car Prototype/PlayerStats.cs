@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PlayerStats : MonoBehaviour {
 
+    [SerializeField] private int currentHp;
+    [SerializeField] private int atk;
+    [SerializeField] private int currentDef;
+
+
     private int currentLevel = 0;
     private int plow = 0;
     private int saw = 0;
@@ -18,6 +23,21 @@ public class PlayerStats : MonoBehaviour {
 
     private void Awake() {
         mov = GetComponent<PlayerMove>();
+        OnStatChange();
+    }
+
+    private void Start() {
+        currentHp = currentStat.mhp;
+        currentDef = currentStat.mdef;
+        atk = currentStat.atk;
+    }
+
+    //TESSS
+    private void Update() {
+        if (Input.GetKeyDown(KeyCode.Q)) {
+            spdUp++;
+            OnStatChange();
+        }
     }
 
     public void OnStatChange() {
