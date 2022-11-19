@@ -13,8 +13,6 @@ public class PlayerMove : MonoBehaviour {
     private float currentAcceleration;
     private float angularVelocity;
 
-    public float CurrentSpeedSq => rb.velocity.sqrMagnitude;
-
     private Rigidbody rb;
 
     private float x, y;

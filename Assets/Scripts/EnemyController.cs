@@ -8,8 +8,9 @@ public class EnemyController : MonoBehaviour {
     private Transform player;
     private Rigidbody rb;
 
-    [SerializeField] private float speed;
-
+    [SerializeField] private float topSpeed;
+    [SerializeField] private float acceleration;
+    [SerializeField] private float ignoreDistanceSq;
 
     private void Awake() {
         detectionArea = GetComponent<SphereCollider>();
@@ -18,18 +19,25 @@ public class EnemyController : MonoBehaviour {
 
     private void FixedUpdate() {
         if (!player || Time.frameCount % 16 == 0) { return; }
-        rb.velocity = speed * (player.position - transform.position);
+        var dist = player.position - transform.position;
+        rb.velocity = Vector3.Lerp(rb.velocity, topSpeed * dist.normalized, acceleration * Time.fixedDeltaTime);
+        if (dist.sqrMagnitude > ignoreDistanceSq) {
+            player = null;
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.CompareTag("Player")) {
+            var sp = collision.gameObject.GetComponent<Rigidbody>().velocity;
+            rb.AddForce(sp * 2, ForceMode.Impulse);
+        }
+
+
     }
 
     private void OnTriggerEnter(Collider other) {
         if (other.CompareTag("Player")) {
             player = other.transform;
-        }
-    }
-
-    private void OnTriggerExit(Collider other) {
-        if (other.CompareTag("Player")) {
-            player = null;
         }
     }
 }
