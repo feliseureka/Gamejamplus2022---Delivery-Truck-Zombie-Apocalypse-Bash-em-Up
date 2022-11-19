@@ -5,20 +5,24 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour {
 
     private int currentLevel = 0;
-    private PStat currentStat, cUpgradeStat;
+    private int plow = 0;
+    private int saw = 0;
+    private int hpUp = 0;
+    private int spdUp = 0;
+    private int defUp = 0;
+    private PStat currentStat;
 
-    [SerializeField] private PStat[] statEachLevel;
+    [SerializeField] private PStatSO stat;
 
-    public void OnLevelUp(int lv) {
-        if (lv < 0 || lv >= statEachLevel.Length) { return; }
-        currentLevel = lv;
-        currentStat = statEachLevel[lv] + cUpgradeStat;
+    private PlayerMove mov;
+
+    private void Awake() {
+        mov = GetComponent<PlayerMove>();
     }
 
-    //NOTE THIS IS ADDITIVE
-    public void OnUpgrade(PStat upStat) {
-        cUpgradeStat += upStat;
-        OnLevelUp(currentLevel);
+    public void OnStatChange() {
+        currentStat = stat.GetStat(currentLevel, plow, saw, hpUp, defUp, spdUp);
+        mov.ChangeStat(currentStat.mSpeed);
     }
 }
 
@@ -35,6 +39,15 @@ public struct PStat {
             mdef = a.mdef + b.mdef,
             mSpeed = a.mSpeed + b.mSpeed,
             atk = a.atk + b.atk
+        };
+    }
+
+    public static PStat operator *(int f, PStat a) {
+        return new PStat {
+            mhp = a.mhp * f,
+            mdef = a.mdef * f,
+            mSpeed = a.mSpeed * f,
+            atk = a.atk * f
         };
     }
 }

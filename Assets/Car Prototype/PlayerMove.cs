@@ -17,6 +17,10 @@ public class PlayerMove : MonoBehaviour {
 
     private float x, y;
 
+    public void ChangeStat(int topSpeed) {
+        this.topSpeed = topSpeed;
+    }
+
     private void Awake() {
         rb = GetComponent<Rigidbody>();
     }
