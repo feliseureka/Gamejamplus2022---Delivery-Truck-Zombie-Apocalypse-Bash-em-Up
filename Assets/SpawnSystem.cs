@@ -9,7 +9,6 @@ public class SpawnSystem : MonoBehaviour
     int length;
 
     [SerializeField] GameObject[] spawn;
-    [SerializeField] int objectSpawnLimit;
     [SerializeField] float probality;
     [SerializeField] int spawnCount;
 
@@ -32,8 +31,8 @@ public class SpawnSystem : MonoBehaviour
 
             Vector3 position = transform.position;
 
-            position.x += UnityEngine.Random.Range(-spawnArea_width, spawnArea_width);
-            position.z += UnityEngine.Random.Range(-spawnArea_height, spawnArea_height);
+            position.x += Random.Range(-spawnArea_width, spawnArea_width);
+            position.z += Random.Range(-spawnArea_height, spawnArea_height);
 
             t.position = position;
         }

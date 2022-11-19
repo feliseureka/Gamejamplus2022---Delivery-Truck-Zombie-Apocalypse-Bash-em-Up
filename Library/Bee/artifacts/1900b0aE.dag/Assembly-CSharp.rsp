@@ -355,6 +355,7 @@
 "Assets/Car Prototype/PStatSO.cs"
 "Assets/Car Prototype/Turret.cs"
 "Assets/PlayerSkillSO/SkillSO.cs"
+"Assets/Scripts/AudioSystem.cs"
 "Assets/Scripts/ChangeScene.cs"
 "Assets/Scripts/EnemyController.cs"
 "Assets/Scripts/GameManager.cs"
