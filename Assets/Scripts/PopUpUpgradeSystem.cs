@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PopUpUpgradeSystem : MonoBehaviour
 {
+    public GameObject upgradeUI;
     public void NextLevel(){
-        Debug.Log("PopUp");
+        upgradeUI.SetActive(true);
     }
 }
