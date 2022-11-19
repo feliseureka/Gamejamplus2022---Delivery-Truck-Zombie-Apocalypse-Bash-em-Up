@@ -7,6 +7,7 @@ public class UpgradeCard : MonoBehaviour
 {
     public SkillSO skill;
     public TMP_Text text;
+    public PlayerStats PStat;
 
     void OnEnable(){
         text.text = skill.skillName;
@@ -22,7 +23,28 @@ public class UpgradeCard : MonoBehaviour
                 skill.level++;
                 PopUpUpgradeSystem.SkillArray.Remove(skill);
             }
+            addCorrespondingSkill();
         }
         GameManager.Instance.changeState(GameState.GameState);
+    }
+
+    public void addCorrespondingSkill(){
+        switch(skill.skillName){
+            case "Plow":
+                PStat.plow++;
+                break;
+            case "Saw":
+                PStat.saw++;
+                break;
+            case "HP Up":
+                PStat.hpUp++;
+                break;
+            case "Def Up":
+                PStat.defUp++;
+                break;
+            case "Speed Up":
+                PStat.spdUp++;
+                break;
+        }
     }
 }

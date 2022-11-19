@@ -16,6 +16,9 @@ public class PopUpUpgradeSystem : MonoBehaviour
         leftUpgrade = upgradeUI.transform.GetChild(1).GetComponent<UpgradeCard>();
         rightUpgrade = upgradeUI.transform.GetChild(2).GetComponent<UpgradeCard>();
         GameManager.OnStateChanged += GameOnStateChanged;
+        foreach(SkillSO skillSO in skillArr){
+            skillSO.level = 0;
+        }
         SkillArray = skillArr;
     }
 
