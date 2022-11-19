@@ -145,3 +145,6 @@ MonoBehaviour:
   topSpeed: 5
   acceleration: 3
   ignoreDistanceSq: 800
+  enemyType: 0
+  attack: 2
+  health: 2
