@@ -17,7 +17,8 @@ public class EnemyController : MonoBehaviour {
     bool isBoom;
     bool isNormal;
     PlayerStats playerStats;
-    public MilestoneSystem milestone;
+    private MilestoneSystem milestone;
+    private ScoreManager sc;
 
     [SerializeField] private float topSpeed;
     [SerializeField] private float acceleration;
@@ -29,6 +30,8 @@ public class EnemyController : MonoBehaviour {
     private void Awake() {
         detectionArea = GetComponent<SphereCollider>();
         rb = GetComponent<Rigidbody>();
+        milestone = GameObject.Find("RManager").transform.GetComponent<MilestoneSystem>();
+        sc = GameObject.Find("ScoreManager").transform.GetComponent<ScoreManager>();
     }
 
     private void FixedUpdate() {
@@ -81,6 +84,7 @@ public class EnemyController : MonoBehaviour {
     }
 
     private void Die() {
+        sc.increaseScore(1);
         MilestoneSystem.increaseProgress();
         Destroy(gameObject);
     }

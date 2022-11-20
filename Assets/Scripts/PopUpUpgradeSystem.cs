@@ -20,6 +20,7 @@ public class PopUpUpgradeSystem : MonoBehaviour
             skillSO.level = 0;
         }
         SkillArray = skillArr;
+        EnqueueSkill();
     }
 
     void EnqueueSkill(){

@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
             case GameState.PauseState:
                 HandlePauseState();
                 break;
+            case GameState.GameOver:
+                HandleGameOver();
+                break;
         }
 
         OnStateChanged?.Invoke(state);
@@ -44,10 +47,15 @@ public class GameManager : MonoBehaviour
     public void HandlePauseState(){
         Time.timeScale = 0;
     }
+    public void HandleGameOver(){
+        Time.timeScale = 0;
+    }
 }
 
 public enum GameState {
     GameState
     ,UpgradeState,
-    PauseState
+    PauseState,
+    GameOver,
+    MainMenu
 }
