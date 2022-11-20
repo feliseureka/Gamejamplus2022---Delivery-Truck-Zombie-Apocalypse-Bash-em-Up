@@ -36,7 +36,10 @@ public class EnemyController : MonoBehaviour {
     private void FixedUpdate() {
         if (!player || Time.frameCount % 16 == 0) { return; }
         var dist = player.position - transform.position;
-        rb.velocity = Vector3.Lerp(rb.velocity, topSpeed * dist.normalized, acceleration * Time.fixedDeltaTime);
+        var prevRot = rb.rotation.eulerAngles;
+        var yAngle = Mathf.Rad2Deg * Mathf.Atan2(dist.x, dist.z);
+        rb.rotation = Quaternion.Euler(prevRot.x, Mathf.LerpAngle(prevRot.y, yAngle, 0.1f), prevRot.z);
+        rb.velocity = Vector3.Lerp(rb.velocity, topSpeed * transform.forward, acceleration * Time.fixedDeltaTime);
         if (dist.sqrMagnitude > ignoreDistanceSq) {
             player = null;
         }

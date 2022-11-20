@@ -30,17 +30,4 @@ public class CheckPoint : MonoBehaviour
         }
     }
 
-    void OnTriggerExit(Collider other) {
-        if (other.CompareTag("Player") && waitPark != null) {
-            StopCoroutine(waitPark);
-        }
-    }
-
-    IEnumerator Wait(Collider other) {
-        yield return new WaitForSeconds(waitTime);
-        other.transform.GetComponent<PlayerStats>().recoverHealth();
-        Spawn();
-        Destroy(gameObject);
-        waitPark = null;
-    }
 }
