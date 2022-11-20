@@ -36,19 +36,23 @@ public class PlayerMove : MonoBehaviour {
         var yt = Time.fixedDeltaTime * y;
         var f = yt * angularVelocity < 0 ? angularCounterAcceleration : angularAcceleration;
         if (y != 0f) {
+            //Ngegas
             if (rb.velocity.magnitude < topSpeed) {
                 rb.AddForce(currentAcceleration * yt * transform.forward);
                 //AudioSystem.Instance.PlaySFX(1);
             }
+            //Set vel mbelok
             if (x != 0f) {
                 angularVelocity += f * x * yt * angularAcceleration;
                 //AudioSystem.Instance.PlaySFX(Random.Range(12,17));
             }
         }
+        //Nggk mbelok
         if (x == 0f) {
             angularVelocity /= 8;
         }
         angularVelocity = Mathf.Clamp(angularVelocity, -60f, 60f);
+        //mbeloknya di sini
         if (rb.velocity.sqrMagnitude > 0.01f) {
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, angularVelocity * Time.fixedDeltaTime, 0f));
         }
