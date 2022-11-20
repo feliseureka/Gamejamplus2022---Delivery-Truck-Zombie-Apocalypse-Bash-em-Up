@@ -960,7 +960,7 @@ GameObject:
   - component: {fileID: 1109025448}
   - component: {fileID: 1109025449}
   m_Layer: 0
-  m_Name: Turret
+  m_Name: Shotgun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -993,10 +993,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27e9c4b40a168c14599646d455283ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 0
-  range: 20
-  knockback: 10
-  delay: 0.5
+  damage: 2
+  range: 10
+  knockback: 5
+  delay: 0.6
   spread: 10
   burstCount: 5
 --- !u!1001 &1139386999
@@ -1388,6 +1388,56 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8665586919204249118, guid: f192aa8c7e585d74eac426d480a8b3c7, type: 3}
   m_PrefabInstance: {fileID: 1205676549}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1332148221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1332148222}
+  - component: {fileID: 1332148223}
+  m_Layer: 0
+  m_Name: MachineGun
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1332148222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332148221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1940261043}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1332148223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1332148221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27e9c4b40a168c14599646d455283ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  range: 10
+  knockback: 5
+  delay: 0.6
+  spread: 1
+  burstCount: 1
 --- !u!1 &1341009331
 GameObject:
   m_ObjectHideFlags: 0
@@ -2070,6 +2120,7 @@ MonoBehaviour:
   spawnArea_width: 435.7
   spawn:
   - {fileID: 8513868619454360112, guid: 43d93fcaaa9f6bd4a943b110a8e2a74e, type: 3}
+  - {fileID: 8513868619454360112, guid: 7269baad73c4bd1478c21a8dbdcced9d, type: 3}
   probality: 100
   spawnCount: 1000
 --- !u!4 &2086437034
@@ -2283,7 +2334,7 @@ PrefabInstance:
     - target: {fileID: 5572814336541800361, guid: 03d4736268fc73142b8a5186a30c5046, type: 3}
       propertyPath: mGun
       value: 
-      objectReference: {fileID: 1109025449}
+      objectReference: {fileID: 1332148223}
     - target: {fileID: 5572814336541800361, guid: 03d4736268fc73142b8a5186a30c5046, type: 3}
       propertyPath: sGun
       value: 

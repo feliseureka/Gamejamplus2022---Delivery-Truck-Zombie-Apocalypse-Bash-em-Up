@@ -57,7 +57,7 @@ public class EnemyController : MonoBehaviour {
         if (isNormal)
         {
             isNormal = false;
-            playerStats.TakeDamage(attack);
+            TakeDamage(playerStats.atk);
             yield return new WaitForSeconds(2f);
             isNormal = true;
         }
@@ -83,6 +83,11 @@ public class EnemyController : MonoBehaviour {
     private void Die() {
         MilestoneSystem.increaseProgress();
         Destroy(gameObject);
+    }
+
+    public void ChangeDiff(int level){
+        health = health * (1+((level-1)/2));
+        attack = attack * (1+((level-1)/2));
     }
 
     private void OnCollisionEnter(Collision collision) {

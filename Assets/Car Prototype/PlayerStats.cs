@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class PlayerStats : MonoBehaviour {
 
     [SerializeField] private int currentHp;
-    [SerializeField] private int atk;
+    public int atk;
     [SerializeField] private int currentDef;
+    public int currAtk;
 
 
     public int currentLevel = 0;

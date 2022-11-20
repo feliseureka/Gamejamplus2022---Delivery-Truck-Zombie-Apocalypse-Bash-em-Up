@@ -14,6 +14,7 @@ public class SpawnSystem : MonoBehaviour
     [SerializeField] int spawnCount;
 
     private int maxSpawn = 10000;
+    public int zombieLevel = 1;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class SpawnSystem : MonoBehaviour
     }
 
     IEnumerator spawnUpdate(){
-        spawnCount = Random.Range(0, 10);
+        spawnCount = Random.Range(0, 20);
         yield return new WaitForSeconds(1);
         if(maxSpawn >= spawn.Length){
             Spawn();
@@ -35,13 +36,12 @@ public class SpawnSystem : MonoBehaviour
     private void Update()
     {
         time += Time.deltaTime;
-        if (time > 3f)
+        if (time > 60f)
         {
             time = 0;
             if (transform.childCount < 10000)
             {
-                Spawn();
-                spawnCount += 5;
+                zombieLevel++;
             }
         }
 
@@ -56,6 +56,7 @@ public class SpawnSystem : MonoBehaviour
             int id = Random.Range(0, length);
             GameObject go = Instantiate(spawn[id]);
             Transform t = go.transform;
+            t.GetComponent<EnemyController>().ChangeDiff(zombieLevel);
             t.SetParent(transform);
 
             Vector3 position = transform.position;

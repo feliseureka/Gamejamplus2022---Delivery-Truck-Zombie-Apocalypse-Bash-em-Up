@@ -27,6 +27,7 @@ public class Turret : MonoBehaviour {
                 if (Physics.Raycast(transform.position, dir, out var hit, range)) {
                     var target = hit.transform.GetComponent<Rigidbody>();
                     target.AddForce(transform.forward * knockback, ForceMode.Impulse);
+                    hit.transform.GetComponent<EnemyController>().TakeDamage(damage);
                 }
             }
             yield return new WaitForSeconds(wait);

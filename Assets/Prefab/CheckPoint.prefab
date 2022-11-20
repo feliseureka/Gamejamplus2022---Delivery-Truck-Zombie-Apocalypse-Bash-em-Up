@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 486041367593655582}
   - component: {fileID: 2611618007701474404}
   - component: {fileID: 5107469062295285154}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 5398637645094781243}
   - component: {fileID: 2541056720027812642}
   - component: {fileID: 3018022733732999063}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,7 +189,7 @@ GameObject:
   - component: {fileID: 3407560370746041660}
   - component: {fileID: 3407560370746041651}
   - component: {fileID: 3407560370746041650}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -302,7 +302,7 @@ GameObject:
   - component: {fileID: 5258175959526994242}
   - component: {fileID: 6014782946767503626}
   - component: {fileID: 6992012559538054114}
-  m_Layer: 5
+  m_Layer: 2
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
