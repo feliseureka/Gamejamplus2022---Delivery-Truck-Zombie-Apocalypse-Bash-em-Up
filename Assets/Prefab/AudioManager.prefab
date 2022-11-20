@@ -44,11 +44,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 5c484fd98ce24e64e9043bc4b1550a18, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -141,7 +141,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -240,5 +240,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   musicSource: {fileID: 6871124587925284587}
   SFXsource: {fileID: 6871124587925284580}
-  MusicArray: []
-  SFXArray: []
+  MusicArray:
+  - {fileID: 8300000, guid: 5c484fd98ce24e64e9043bc4b1550a18, type: 3}
+  SFXArray:
+  - {fileID: 8300000, guid: 43f8fe9ec8c6ed74da3b960980f0a343, type: 3}
+  - {fileID: 8300000, guid: f450490a5efdf4840be3be6c398e711b, type: 3}
+  - {fileID: 8300000, guid: dfbcbcb2a3a600343aed5d3283d580d5, type: 3}
+  - {fileID: 8300000, guid: 9b7773a713ee4bd4e838cbf395b039d3, type: 3}
+  - {fileID: 8300000, guid: 1464b7c37561c4f44bb5cfc703503994, type: 3}
+  - {fileID: 8300000, guid: 0be610028bea5ed409bc74d2b200ee76, type: 3}
+  - {fileID: 8300000, guid: 93e7ccdf0e9f6ea41af8d7e6754585ee, type: 3}
+  - {fileID: 8300000, guid: 0894e2e95f3471946ab2d264b74e97ac, type: 3}
+  - {fileID: 8300000, guid: 3edd869386357954db6c8ac0830bd5c0, type: 3}
+  - {fileID: 8300000, guid: a2e194747b779d1439e39b865fda76f4, type: 3}
+  - {fileID: 8300000, guid: 780f5f2b6e5525f479f3458d501a3635, type: 3}
+  - {fileID: 8300000, guid: c9b4966c84369aa4db39028449fcb20f, type: 3}
+  - {fileID: 8300000, guid: 42dc0a866e8b3fc4f8b0ba34d4b37ce5, type: 3}
+  - {fileID: 8300000, guid: 4c2cf2db594f4fb4d84e44eb7bdc9c67, type: 3}
+  - {fileID: 8300000, guid: ae7c2ebfe3e56b54b9ca82d0efc8b6f9, type: 3}
+  - {fileID: 8300000, guid: fd0f6bb1fabed554694aa71857ab2428, type: 3}
+  - {fileID: 8300000, guid: 933f085357432e8438483f31fa224512, type: 3}

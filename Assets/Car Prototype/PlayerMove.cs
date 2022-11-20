@@ -38,9 +38,11 @@ public class PlayerMove : MonoBehaviour {
         if (y != 0f) {
             if (rb.velocity.magnitude < topSpeed) {
                 rb.AddForce(currentAcceleration * yt * transform.forward);
+                //AudioSystem.Instance.PlaySFX(1);
             }
             if (x != 0f) {
                 angularVelocity += f * x * yt * angularAcceleration;
+                //AudioSystem.Instance.PlaySFX(Random.Range(12,17));
             }
         }
         if (x == 0f) {
