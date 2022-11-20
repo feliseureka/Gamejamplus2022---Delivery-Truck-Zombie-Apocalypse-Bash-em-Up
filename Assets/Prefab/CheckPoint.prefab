@@ -187,7 +187,6 @@ GameObject:
   - component: {fileID: 3407560370746041662}
   - component: {fileID: 3407560370746041661}
   - component: {fileID: 3407560370746041660}
-  - component: {fileID: 3407560370746041651}
   - component: {fileID: 3407560370746041650}
   m_Layer: 2
   m_Name: CheckPoint
@@ -262,20 +261,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &3407560370746041651
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3407560370746041649}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!114 &3407560370746041650
 MonoBehaviour:
   m_ObjectHideFlags: 0
