@@ -6,6 +6,7 @@ public class CheckPoint : MonoBehaviour
 {
     [SerializeField] float spawnArea_height = 1f;
     [SerializeField] float spawnArea_width = 1f;
+    [SerializeField] float waitTime = 2.5f;
     public GameObject checkPoint;
 
     private ScoreManager scoreManager;
@@ -27,5 +28,19 @@ public class CheckPoint : MonoBehaviour
             scoreManager.increaseScore(10);
             Destroy(gameObject);
         }
+    }
+
+    void OnTriggerExit(Collider other) {
+        if (other.CompareTag("Player") && waitPark != null) {
+            StopCoroutine(waitPark);
+        }
+    }
+
+    IEnumerator Wait(Collider other) {
+        yield return new WaitForSeconds(waitTime);
+        other.transform.GetComponent<PlayerStats>().recoverHealth();
+        Spawn();
+        Destroy(gameObject);
+        waitPark = null;
     }
 }

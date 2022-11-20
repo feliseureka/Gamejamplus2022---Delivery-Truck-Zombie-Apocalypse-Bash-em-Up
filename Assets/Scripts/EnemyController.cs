@@ -14,8 +14,6 @@ public class EnemyController : MonoBehaviour {
     private SphereCollider detectionArea;
     private Transform player;
     private Rigidbody rb;
-    bool isBoom;
-    bool isNormal;
     PlayerStats playerStats;
     private MilestoneSystem milestone;
     private ScoreManager sc;
@@ -26,6 +24,7 @@ public class EnemyController : MonoBehaviour {
     [SerializeField] EnemyType enemyType;
     [SerializeField] int attack;
     [SerializeField] int health;
+    [SerializeField] float knockBackForce = 30f;
 
     private void Awake() {
         detectionArea = GetComponent<SphereCollider>();
@@ -42,28 +41,11 @@ public class EnemyController : MonoBehaviour {
             player = null;
         }
 
-        switch (enemyType)
-        {
-            case EnemyType.Boommer:
-                EnemyBoom();
-                break;
-            case EnemyType.Normal:
-                StartCoroutine(NormalEnemy());
-                break;
-            default:
-                break;
-        }
     }
 
-    IEnumerator NormalEnemy()
-    {
-        if (isNormal)
-        {
-            isNormal = false;
-            TakeDamage(playerStats.atk);
-            yield return new WaitForSeconds(2f);
-            isNormal = true;
-        }
+    IEnumerator NormalEnemyColl() {
+        TakeDamage(playerStats.atk);
+        yield return new WaitForSeconds(2f);
     }
 
     public void TakeDamage(int damage) {
@@ -73,14 +55,12 @@ public class EnemyController : MonoBehaviour {
         }
     }
 
-    void EnemyBoom()
-    {
-        if (isBoom)
-        {
-            isBoom = false;
-            playerStats.TakeDamage(attack * 2);
-            Die();
-        }
+    void EnemyBoomColl(Rigidbody player) {
+
+        player.AddForce((player.position - transform.position).normalized * knockBackForce, ForceMode.Impulse);
+        playerStats.TakeDamage(attack * 2);
+        Die();
+
     }
 
     private void Die() {
@@ -90,24 +70,26 @@ public class EnemyController : MonoBehaviour {
     }
 
     public void ChangeDiff(int level){
-        health = health * (1+((level-1)/2));
-        attack = attack * (1+((level-1)/2));
+        health *= 1+((level-1)/2);
+        attack *= 1+((level-1)/2);
+        knockBackForce += (level - 1) * 2f;
     }
 
     private void OnCollisionEnter(Collision collision) {
         if (collision.gameObject.CompareTag("Player")) {
-            var sp = collision.gameObject.GetComponent<Rigidbody>().velocity;
-            rb.AddForce(sp * 2, ForceMode.Impulse);
-            isBoom = true;
-            isNormal = true;
-        }
-    }
+            var p = collision.gameObject.GetComponent<Rigidbody>();
+            rb.AddForce(p.velocity * 2, ForceMode.Impulse);
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            isNormal = false;
+            switch (enemyType) {
+                case EnemyType.Boommer:
+                    EnemyBoomColl(p);
+                    break;
+                case EnemyType.Normal:
+                    StartCoroutine(NormalEnemyColl());
+                    break;
+                default:
+                    break;
+            }
         }
     }
 

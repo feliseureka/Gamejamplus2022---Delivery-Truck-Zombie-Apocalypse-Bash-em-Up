@@ -36,7 +36,9 @@ public class PlayerMove : MonoBehaviour {
         var yt = Time.fixedDeltaTime * y;
         var f = yt * angularVelocity < 0 ? angularCounterAcceleration : angularAcceleration;
         if (y != 0f) {
-            rb.AddForce(currentAcceleration * yt * transform.forward);
+            if (rb.velocity.magnitude < topSpeed) {
+                rb.AddForce(currentAcceleration * yt * transform.forward);
+            }
             if (x != 0f) {
                 angularVelocity += f * x * yt * angularAcceleration;
             }
@@ -44,7 +46,6 @@ public class PlayerMove : MonoBehaviour {
         if (x == 0f) {
             angularVelocity /= 8;
         }
-            rb.velocity = Vector3.ClampMagnitude(rb.velocity, topSpeed);
         angularVelocity = Mathf.Clamp(angularVelocity, -60f, 60f);
         if (rb.velocity.sqrMagnitude > 0.01f) {
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, angularVelocity * Time.fixedDeltaTime, 0f));
