@@ -52,7 +52,6 @@ public class UpgradeCard : MonoBehaviour
                 PStat.sGun.Upgrade();
                 break;
             case "Heal":
-                Debug.Log("Heal");
                 PStat.FullHeal();
                 break;
         }
