@@ -13,4 +13,8 @@ public class ChangeScene : MonoBehaviour
             AudioSystem.Instance.PlayMusic(0);
         }
     }
+
+    public void ExitGame() {
+        Application.Quit();
+    }
 }
