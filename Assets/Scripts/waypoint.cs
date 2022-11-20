@@ -7,6 +7,7 @@ using TMPro;
 public class waypoint : MonoBehaviour
 {
     public Image image;
+    public Transform cv;
     public Transform text;
     public Transform target;
 
@@ -38,6 +39,7 @@ public class waypoint : MonoBehaviour
         pos.x = Mathf.Clamp(pos.x, minX, maxX);
         image.transform.position = pos;
         text.position = pos + new Vector2(0, 50);
-        text.GetComponent<TMP_Text>().text = Mathf.Floor(Vector3.Distance(target.position, pl.position)) + "";
+        text.GetComponent<TMP_Text>().text = Mathf.Floor(Vector3.Distance(target.position, pl.position)) + " m";
+        cv.position = pos + new Vector2(0, 100);
     }
 }

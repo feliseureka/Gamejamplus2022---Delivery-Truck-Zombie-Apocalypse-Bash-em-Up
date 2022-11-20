@@ -11,6 +11,7 @@ public class AudioSystem : MonoBehaviour
 
     public AudioClip[] MusicArray;
     public AudioClip[] SFXArray;
+    int sfxplay = -1;
 
     void Start(){
         if(Instance != null && Instance != this){
@@ -32,6 +33,7 @@ public class AudioSystem : MonoBehaviour
 
     public void PlaySFX(int i){
         if(!SFXsource.isPlaying){
+            sfxplay = i;
             AudioClip s = SFXArray[i];
             SFXsource.clip = s;
             SFXsource.Play();
@@ -56,6 +58,10 @@ public class AudioSystem : MonoBehaviour
 
     public void StopMusic(){
         musicSource.Stop();
+    }
+
+    public int retSFXPlaying(){
+        return sfxplay;
     }
 
     public void StopSFX(){
