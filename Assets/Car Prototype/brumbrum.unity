@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -447,6 +447,7 @@ MonoBehaviour:
   - {fileID: 8513868619454360112, guid: 7269baad73c4bd1478c21a8dbdcced9d, type: 3}
   probality: 2
   spawnCount: 1
+  zombieLevel: 1
 --- !u!4 &1893838332
 Transform:
   m_ObjectHideFlags: 0
@@ -474,6 +475,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1935658189927331596, guid: 03d4736268fc73142b8a5186a30c5046, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5572814336541800360, guid: 03d4736268fc73142b8a5186a30c5046, type: 3}
       propertyPath: m_AngularDrag
       value: 0.1
