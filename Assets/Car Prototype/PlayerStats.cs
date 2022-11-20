@@ -38,6 +38,13 @@ public class PlayerStats : MonoBehaviour {
         healthUI.value = currentHp;
     }
 
+    private void FixedUpdate() {
+        if (Time.frameCount % 16 != 0) { return; }
+        if (transform.position.y < -10f) {
+            gom.GameEnd();
+        }
+    }
+
     public void OnStatChange() {
         currentStat = stat.GetStat(currentLevel, plow, saw, hpUp, defUp, spdUp);
         healthUI.maxValue = currentStat.mhp;
