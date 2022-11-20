@@ -14544,6 +14544,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1324032317}
   - component: {fileID: 1324032318}
+  - component: {fileID: 1324032319}
   m_Layer: 0
   m_Name: ScoreManager
   m_TagString: Untagged
@@ -14579,6 +14580,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 657826121}
+--- !u!114 &1324032319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1324032316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ac503ee158a0e64c9159c0dfc2a568b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objToPlace:
+  - {fileID: 2158321906432796789, guid: 824b6d76d5a74e640a1d6368a0a3a34f, type: 3}
+  - {fileID: 3049489884729064561, guid: f01b3966f6df01441830ec47e2633091, type: 3}
+  - {fileID: 2155060084979415375, guid: adb76b1ca081a1e42834f4ce7ca9a4da, type: 3}
+  - {fileID: 5819550636002913367, guid: 3adadc4926baf634a8f972823110d093, type: 3}
+  - {fileID: 7506950528569893990, guid: cf485a5967e66e949895a4a6dcf5888b, type: 3}
+  - {fileID: 520162615863289448, guid: c91379396cb28c14294dcc968baa01bd, type: 3}
+  - {fileID: 9116176160580595404, guid: 4fd2287455357554f9e4ce86d1a0f3cd, type: 3}
+  count: 3c000000460000001400000014000000140000001400000014000000
+  lim: 500
 --- !u!1 &1332148221
 GameObject:
   m_ObjectHideFlags: 0
