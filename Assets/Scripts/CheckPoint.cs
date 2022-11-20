@@ -30,4 +30,12 @@ public class CheckPoint : MonoBehaviour
         }
     }
 
+
+    IEnumerator Wait(Collider other) {
+        yield return new WaitForSeconds(waitTime);
+        other.transform.GetComponent<PlayerStats>().recoverHealth();
+        Spawn();
+        Destroy(gameObject);
+        
+    }
 }

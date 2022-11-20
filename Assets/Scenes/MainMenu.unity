@@ -982,6 +982,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6871124587925284580, guid: aa8fb9c4788904144bfbb5385cc89ef8, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871124587925284581, guid: aa8fb9c4788904144bfbb5385cc89ef8, type: 3}
+      propertyPath: MusicArray.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871124587925284581, guid: aa8fb9c4788904144bfbb5385cc89ef8, type: 3}
+      propertyPath: MusicArray.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c484fd98ce24e64e9043bc4b1550a18, type: 3}
     - target: {fileID: 6871124587925284582, guid: aa8fb9c4788904144bfbb5385cc89ef8, type: 3}
       propertyPath: m_Name
       value: AudioManager
@@ -1029,6 +1041,18 @@ PrefabInstance:
     - target: {fileID: 6871124587925284586, guid: aa8fb9c4788904144bfbb5385cc89ef8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871124587925284587, guid: aa8fb9c4788904144bfbb5385cc89ef8, type: 3}
+      propertyPath: Loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6871124587925284587, guid: aa8fb9c4788904144bfbb5385cc89ef8, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5c484fd98ce24e64e9043bc4b1550a18, type: 3}
+    - target: {fileID: 6871124587925284587, guid: aa8fb9c4788904144bfbb5385cc89ef8, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa8fb9c4788904144bfbb5385cc89ef8, type: 3}

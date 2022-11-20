@@ -19,6 +19,9 @@ public class AudioSystem : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        if(PlayerPrefs.HasKey("MusicVol")) musicSource.volume = PlayerPrefs.GetFloat("MusicVol");
+        if(PlayerPrefs.HasKey("SFXVol")) SFXsource.volume = PlayerPrefs.GetFloat("SFXVol");
     }
 
     public void PlayMusic(int i){
@@ -28,9 +31,11 @@ public class AudioSystem : MonoBehaviour
     }
 
     public void PlaySFX(int i){
-        AudioClip s = SFXArray[i];
-        SFXsource.clip = s;
-        SFXsource.Play();
+        if(!SFXsource.isPlaying){
+            AudioClip s = SFXArray[i];
+            SFXsource.clip = s;
+            SFXsource.Play();
+        }
     }
 
     public void ChangeMusicVolume(float value){

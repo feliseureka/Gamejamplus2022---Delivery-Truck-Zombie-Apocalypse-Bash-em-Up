@@ -25,5 +25,7 @@ public class GameOverManager : MonoBehaviour
 
     public void ToMenu(){
         GameManager.Instance.changeState(GameState.GameState);
+        AudioSystem.Instance.StopMusic();
+        AudioSystem.Instance.PlayMusic(0);
     }
 }
