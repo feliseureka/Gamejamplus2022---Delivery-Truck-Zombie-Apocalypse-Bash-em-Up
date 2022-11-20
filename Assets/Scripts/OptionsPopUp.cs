@@ -13,8 +13,10 @@ public class OptionsPopUp : MonoBehaviour
     public TMP_Text sfxText;
 
     void Start(){
+        if(!PlayerPrefs.HasKey("MusicVol")) PlayerPrefs.SetFloat("MusicVol", 100f);
         musicSlider.value = PlayerPrefs.GetFloat("MusicVol");
         musicText.text = Mathf.Floor(100 * musicSlider.value) + "";
+        if(!PlayerPrefs.HasKey("MusicVol")) PlayerPrefs.SetFloat("SFXVol", 100f);
         SFXSlider.value = PlayerPrefs.GetFloat("SFXVol");
         sfxText.text = Mathf.Floor(100 * SFXSlider.value) + "";
     }

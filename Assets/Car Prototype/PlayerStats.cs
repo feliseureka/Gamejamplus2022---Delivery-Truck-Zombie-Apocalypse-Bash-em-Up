@@ -8,7 +8,7 @@ public class PlayerStats : MonoBehaviour {
     [SerializeField] private int currentHp;
     public int atk;
     [SerializeField] private int currentDef;
-    public int currAtk;
+    public GameOverManager gom;
 
 
     public int currentLevel = 0;
@@ -50,6 +50,9 @@ public class PlayerStats : MonoBehaviour {
             currentDef = 0;
             damage -= currentDef;
             currentHp -= damage;
+            if(currentHp <= 0){
+                gom.GameEnd();
+            }
         } else {
             currentDef -= damage;
         }
@@ -58,11 +61,14 @@ public class PlayerStats : MonoBehaviour {
 
     public void FullHeal(){
         currentHp = currentStat.mhp;
-        healthUI.value = currentHp;
+        healthUI.value = currentStat.mhp;
     }
 
     public void recoverHealth(){
         currentHp += (int) Mathf.Floor(currentStat.mhp/10);
+        if(currentHp > currentStat.mhp){
+            currentHp = currentStat.mhp;
+        }
         healthUI.value = currentHp;
     }
 }

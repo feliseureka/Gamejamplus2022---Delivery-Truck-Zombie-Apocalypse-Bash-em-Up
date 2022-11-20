@@ -9,7 +9,11 @@ public class CheckPoint : MonoBehaviour
     [SerializeField] float waitTime = 2.5f;
     public GameObject checkPoint;
 
-    private Coroutine waitPark;
+    private ScoreManager scoreManager;
+
+    void Start(){
+        scoreManager = GameObject.Find("ScoreManager").transform.GetComponent<ScoreManager>();
+    }
 
     public void Spawn(){
         Vector3 rsp = new Vector3(Random.Range(-spawnArea_width, spawnArea_width), 1, Random.Range(-spawnArea_height, spawnArea_height));
@@ -18,8 +22,11 @@ public class CheckPoint : MonoBehaviour
     }
 
     void OnTriggerEnter(Collider other){
-        if(other.CompareTag("Player")) {
-            waitPark = StartCoroutine(Wait(other));
+        if(other.tag == "Player"){
+            other.transform.GetComponent<PlayerStats>().recoverHealth();
+            Spawn();
+            scoreManager.increaseScore(10);
+            Destroy(gameObject);
         }
     }
 
