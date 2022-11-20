@@ -7,10 +7,12 @@ using System;
 public class AudioSystem : MonoBehaviour
 {
     public static AudioSystem Instance;
-    public AudioSource musicSource, SFXsource;
+    public AudioSource musicSource, SFXsource, EngineLoopSFX, zombieSFX;
 
     public AudioClip[] MusicArray;
-    public AudioClip[] SFXArray;
+    public AudioClip[] DriftArray;
+    public AudioClip[] ZombieArray;
+    public AudioClip[] EngineLoop;
     int sfxplay = -1;
 
     void Start(){
@@ -21,8 +23,8 @@ public class AudioSystem : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        if(PlayerPrefs.HasKey("MusicVol")) musicSource.volume = PlayerPrefs.GetFloat("MusicVol");
-        if(PlayerPrefs.HasKey("SFXVol")) SFXsource.volume = PlayerPrefs.GetFloat("SFXVol");
+        if(PlayerPrefs.HasKey("MusicVol")) ChangeMusicVolume(PlayerPrefs.GetFloat("MusicVol"));
+        if(PlayerPrefs.HasKey("SFXVol")) ChangeSFXVolume(PlayerPrefs.GetFloat("SFXVol"));
     }
 
     public void PlayMusic(int i){
@@ -31,13 +33,33 @@ public class AudioSystem : MonoBehaviour
         musicSource.Play();
     }
 
-    public void PlaySFX(int i){
+    public void PlayEngine(int i){
+        if(!EngineLoopSFX.isPlaying){
+            AudioClip s = EngineLoop[i];
+            EngineLoopSFX.clip = s;
+            EngineLoopSFX.Play();
+        }
+    }
+
+    public void PlayZombie(){
+        int i = UnityEngine.Random.Range(0, ZombieArray.Length);
+        if(!zombieSFX.isPlaying){
+            AudioClip s = ZombieArray[i];
+            zombieSFX.clip = s;
+            zombieSFX.Play();
+            PlayZombie();
+        }
+    }
+    public void PlayDrift(int i){
         if(!SFXsource.isPlaying){
-            sfxplay = i;
-            AudioClip s = SFXArray[i];
+            AudioClip s = DriftArray[i];
             SFXsource.clip = s;
             SFXsource.Play();
         }
+    }
+
+    public void StopDrift(){
+        SFXsource.Stop();
     }
 
     public void ChangeMusicVolume(float value){
@@ -46,6 +68,8 @@ public class AudioSystem : MonoBehaviour
 
     public void ChangeSFXVolume(float value){
         SFXsource.volume = value;
+        EngineLoopSFX.volume = value;
+        zombieSFX.volume = value;
     }
 
     public void tMuteMusic(){
@@ -54,6 +78,8 @@ public class AudioSystem : MonoBehaviour
 
     public void tMuteSFX(){
         SFXsource.mute = !SFXsource.mute;
+        EngineLoopSFX.mute = SFXsource.mute;
+        zombieSFX.mute = SFXsource.mute;
     }
 
     public void StopMusic(){
@@ -66,5 +92,11 @@ public class AudioSystem : MonoBehaviour
 
     public void StopSFX(){
         SFXsource.Stop();
+        EngineLoopSFX.Stop();
+        zombieSFX.Stop();
+    }
+
+    public void StopEngine(){
+        EngineLoopSFX.Stop();
     }
 }

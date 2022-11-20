@@ -51,7 +51,7 @@ public class PlayerMove : MonoBehaviour {
             }
         }else{
             if(rb.velocity == new Vector3(0,0,0)){
-                AudioSystem.Instance.StopSFX();
+                AudioSystem.Instance.StopEngine();
             }
         }
         int au = AudioSystem.Instance.retSFXPlaying();
@@ -59,17 +59,17 @@ public class PlayerMove : MonoBehaviour {
         if (x == 0f) {
             angularVelocity /= 8;
             if(y != 0f){
-                if(!isDragging && au > 11) AudioSystem.Instance.StopSFX();
-                AudioSystem.Instance.PlaySFX(1);
+                AudioSystem.Instance.PlayEngine(Random.Range(0, AudioSystem.Instance.EngineLoop.Length));
             }
         }
         angularVelocity = Mathf.Clamp(angularVelocity, -60f, 60f);
         //mbeloknya di sini
         if (rb.velocity.sqrMagnitude > 0.01f) {
             rb.MoveRotation(rb.rotation * Quaternion.Euler(0f, angularVelocity * Time.fixedDeltaTime, 0f));
-            if(y!=0f){
-                if(isDragging && au < 12) AudioSystem.Instance.StopSFX();
-                AudioSystem.Instance.PlaySFX(Random.Range(12,17));
+            if(y!=0f && isDragging){
+                AudioSystem.Instance.PlayDrift(Random.Range(0, AudioSystem.Instance.DriftArray.Length));
+            }else{
+                AudioSystem.Instance.StopDrift();
             }
         }
     }

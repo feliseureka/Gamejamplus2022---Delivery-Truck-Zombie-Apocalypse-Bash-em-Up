@@ -11,6 +11,7 @@ public class GameOverManager : MonoBehaviour
 
     public void GameEnd(){
         GameManager.Instance.changeState(GameState.GameOver);
+        AudioSystem.Instance.PlayMusic(2);
         if(!PlayerPrefs.HasKey("BestScore")) PlayerPrefs.SetInt("BestScore", 0);
         int bs = PlayerPrefs.GetInt("BestScore");
         int rs = ScoreManager.score;
