@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028355, g: 0.22571374, b: 0.30692255, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -123,6 +123,24 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &3953538 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3407560370746041649, guid: 48e06f58d5dc86545b4db9c1a0acd9c6, type: 3}
+  m_PrefabInstance: {fileID: 3407560369974365492}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &3953544
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3953538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 5
+  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &106768930
 GameObject:
   m_ObjectHideFlags: 0
@@ -2123,6 +2141,7 @@ MonoBehaviour:
   - {fileID: 8513868619454360112, guid: 7269baad73c4bd1478c21a8dbdcced9d, type: 3}
   probality: 100
   spawnCount: 1000
+  zombieLevel: 1
 --- !u!4 &2086437034
 Transform:
   m_ObjectHideFlags: 0
@@ -2330,6 +2349,10 @@ PrefabInstance:
     - target: {fileID: 5572814336541800360, guid: 03d4736268fc73142b8a5186a30c5046, type: 3}
       propertyPath: m_AngularDrag
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5572814336541800360, guid: 03d4736268fc73142b8a5186a30c5046, type: 3}
+      propertyPath: m_Constraints
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 5572814336541800361, guid: 03d4736268fc73142b8a5186a30c5046, type: 3}
       propertyPath: mGun

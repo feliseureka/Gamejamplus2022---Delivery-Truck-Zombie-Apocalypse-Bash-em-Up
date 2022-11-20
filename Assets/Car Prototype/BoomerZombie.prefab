@@ -143,12 +143,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9883036f1892af4d942020f6b795d77, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  milestone: {fileID: 0}
   topSpeed: 5
   acceleration: 3
   ignoreDistanceSq: 800
   enemyType: 0
   attack: 2
   health: 2
+  knockBackForce: 25
 --- !u!114 &6475812128411008268
 MonoBehaviour:
   m_ObjectHideFlags: 0

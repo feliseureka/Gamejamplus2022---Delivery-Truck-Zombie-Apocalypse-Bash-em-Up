@@ -38,14 +38,6 @@ public class PlayerStats : MonoBehaviour {
         healthUI.value = currentHp;
     }
 
-    //TESSS
-    private void Update() {
-        if (Input.GetKeyDown(KeyCode.Q)) {
-            spdUp++;
-            OnStatChange();
-        }
-    }
-
     public void OnStatChange() {
         currentStat = stat.GetStat(currentLevel, plow, saw, hpUp, defUp, spdUp);
         healthUI.maxValue = currentStat.mhp;
